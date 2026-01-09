@@ -1,0 +1,52 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  NODE_VERSION: '20.x'
+
+steps:
+- task: NodeTool@0
+  displayName: 'Install Node.js'
+  inputs:
+    versionSpec: '$(NODE_VERSION)'
+
+- script: |
+    npm install
+  displayName: 'Install dependencies'
+
+- script: |
+    npm run build
+  displayName: 'Build application'
+  env:
+    NODE_OPTIONS: '--max_old_space_size=4096'
+    VITE_SUPABASE_URL: $(VITE_SUPABASE_URL)
+    VITE_SUPABASE_ANON_KEY: $(VITE_SUPABASE_ANON_KEY)
+
+- script: |
+    if [ -f "staticwebapp.config.json" ]; then
+      cp staticwebapp.config.json dist/
+      echo "Copied staticwebapp.config.json"
+    else
+      echo "staticwebapp.config.json not found, skipping"
+    fi
+    if [ -f "routes.json" ]; then
+      cp routes.json dist/
+      echo "Copied routes.json"
+    else
+      echo "routes.json not found, skipping"
+    fi
+  displayName: 'Copy configuration files'
+  condition: succeeded()
+
+- task: AzureStaticWebApp@0
+  inputs:
+    app_location: "/dist"
+    app_build_command: ""
+    output_location: ""
+    skip_app_build: true
+    skip_api_build: true
+    azure_static_web_apps_api_token: "$(TOKEN)"
+    production_branch: "main"
