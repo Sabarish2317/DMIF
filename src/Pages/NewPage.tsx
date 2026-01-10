@@ -109,6 +109,46 @@ export default function Landing() {
         </div>
       </section>
 
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-2">
+          {[
+            {
+              title: "Before G-CMP",
+              copy: "Endless tutorials, zero clarity. The code editor feels like a wall, not a playground.",
+              tone: "bg-rose-50",
+              image: "/ill3.svg",
+              alt: "Student feeling stuck and frustrated while learning alone",
+            },
+            {
+              title: "After G-CMP",
+              copy: "Guided sprints, real mentorship, and your own shipped products that prove your skills.",
+              tone: "bg-emerald-50",
+              image: "/ill2.svg",
+              alt: "Confident student collaborating online and celebrating progress",
+            },
+          ].map(({ title, copy, tone, image, alt }) => (
+            <figure
+              key={title}
+              className={`${tone} flex flex-col gap-6 rounded-[32px] p-8 shadow-inner`}
+            >
+              <img
+                className="h-72 w-full rounded-3xl object-cover"
+                src={image}
+                alt={alt}
+                loading="lazy"
+              />
+              <div className="space-y-3">
+                <h3 className="text-2xl font-semibold text-black">{title}</h3>
+                <p className="text-gray-600 leading-relaxed">{copy}</p>
+                <figcaption className="text-xs text-gray-500">
+                  Illustration by Freepik
+                </figcaption>
+              </div>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       {/* How It Works */}
       <section className="py-28 px-6">
         <div className="max-w-6xl mx-auto space-y-16">
