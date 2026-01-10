@@ -5,25 +5,25 @@ export default function Landing() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-32 px-6">
-        <div className="max-w-6xl mx-auto grid gap-16 items-center lg:grid-cols-2">
-          <div className="space-y-8">
-            <span className="text-sm font-semibold tracking-[0.2em] text-blue-900 uppercase">
+      <section className="relative pt-20 pb-24 px-6">
+        <div className="max-w-6xl mx-auto grid gap-12 items-center lg:grid-cols-2">
+          <div className="space-y-6">
+            <span className="text-xs font-semibold tracking-[0.2em] text-blue-900 uppercase">
               Project-First Learning
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-black">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-black">
               Build first.
               <br />
               Learn second.
               <br />
               <span className="text-blue-900">Master forever.</span>
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
               Real mentorship for real engineers.
               <br />
               No lectures. Just projects.
             </p>
-            <button className="group inline-flex items-center gap-3 rounded-full bg-blue-900 px-10 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-black">
+            <button className="group inline-flex items-center gap-3 rounded-full bg-blue-900 px-8 py-3 text-base font-semibold text-white transition-all duration-300 hover:bg-blue-900">
               Start building
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </button>
@@ -31,7 +31,7 @@ export default function Landing() {
 
           <div className="flex justify-center lg:justify-end order-first lg:order-none">
             <img
-              className="w-full max-w-xl object-contain"
+              className="w-full max-w-lg object-contain"
               src="/illustration.svg"
               alt="Mentor guiding a student through code"
             />
@@ -40,18 +40,18 @@ export default function Landing() {
       </section>
 
       {/* Stats Bar */}
-      <section className="bg-black items-center justify-center py-16 px-6">
-        <div className="max-w-6xl mx-auto grid gap-10 text-center sm:text-left md:grid-cols-3">
+      <section className="bg-blue-900 items-center justify-center py-12 px-6">
+        <div className="max-w-6xl mx-auto grid gap-8 text-center sm:text-left md:grid-cols-3">
           {[
             { stat: "100%", label: "Project-based learning" },
             { stat: "1:1", label: "Mentor-to-student ratio" },
             { stat: "Real", label: "Production-grade code" },
           ].map((item) => (
             <div key={item.label} className="space-y-2">
-              <p className="text-4xl sm:text-5xl w-full text-center font-bold text-white">
+              <p className="text-3xl sm:text-4xl w-full text-center font-bold text-white">
                 {item.stat}
               </p>
-              <p className="text-gray-400 w-full text-center text-lg">
+              <p className="text-gray-400 w-full text-center text-base">
                 {item.label}
               </p>
             </div>
@@ -60,8 +60,8 @@ export default function Landing() {
       </section>
 
       {/* The Shift */}
-      <section className="py-28 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto grid gap-16 md:grid-cols-2">
+      <section className="py-24 px-6 bg-gray-50">
+        <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-2">
           {[
             {
               title: "Old Way",
@@ -86,18 +86,21 @@ export default function Landing() {
               muted: false,
             },
           ].map((block) => (
-            <div key={block.title} className="space-y-6">
-              <h3 className={`text-sm font-semibold uppercase ${block.tone}`}>
+            <div
+              key={block.title}
+              className="mx-auto flex w-full max-w-md flex-col items-start space-y-5 text-left"
+            >
+              <h3 className={`text-xs font-semibold uppercase ${block.tone}`}>
                 {block.title}
               </h3>
-              <div className="space-y-6">
+              <div className="w-full space-y-5">
                 {block.items.map((item) => (
                   <div key={item} className="flex gap-4 items-start">
                     <div
                       className={`mt-1 h-6 w-6 rounded-full ${block.badge}`}
                     ></div>
                     <p
-                      className={`text-xl ${block.muted ? "text-gray-400 line-through" : "text-black font-medium"}`}
+                      className={`text-lg ${block.muted ? "text-gray-400 line-through" : "text-black font-medium"}`}
                     >
                       {item}
                     </p>
@@ -109,8 +112,8 @@ export default function Landing() {
         </div>
       </section>
 
-      <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-2">
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto grid gap-8 lg:grid-cols-2">
           {[
             {
               title: "Before G-CMP",
@@ -129,20 +132,19 @@ export default function Landing() {
           ].map(({ title, copy, tone, image, alt }) => (
             <figure
               key={title}
-              className={`${tone} flex flex-col gap-6 rounded-[32px] p-8 shadow-inner`}
+              className={`${tone} flex flex-col gap-5 rounded-[28px] p-7 shadow-inner`}
             >
               <img
-                className="h-72 w-full rounded-3xl object-cover"
+                className="h-60 w-full rounded-3xl object-cover"
                 src={image}
                 alt={alt}
                 loading="lazy"
               />
               <div className="space-y-3">
-                <h3 className="text-2xl font-semibold text-black">{title}</h3>
-                <p className="text-gray-600 leading-relaxed">{copy}</p>
-                <figcaption className="text-xs text-gray-500">
-                  Illustration by Freepik
-                </figcaption>
+                <h3 className="text-xl font-semibold text-black">{title}</h3>
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                  {copy}
+                </p>
               </div>
             </figure>
           ))}
@@ -150,12 +152,12 @@ export default function Landing() {
       </section>
 
       {/* How It Works */}
-      <section className="py-28 px-6">
-        <div className="max-w-6xl mx-auto space-y-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-black">
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto space-y-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black">
             How it works
           </h2>
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3">
             {[
               {
                 step: "1",
@@ -175,15 +177,17 @@ export default function Landing() {
             ].map((card) => (
               <div
                 key={card.step}
-                className="group rounded-3xl border border-gray-100 p-8 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group rounded-3xl border border-gray-100 p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-900 text-2xl font-bold text-white transition-transform group-hover:scale-110">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-900 text-xl font-bold text-white transition-transform group-hover:scale-110">
                   {card.step}
                 </div>
-                <h3 className="mb-4 text-2xl font-semibold text-black">
+                <h3 className="mb-3 text-xl font-semibold text-black">
                   {card.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">{card.copy}</p>
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                  {card.copy}
+                </p>
               </div>
             ))}
           </div>
@@ -191,9 +195,9 @@ export default function Landing() {
       </section>
 
       {/* Visual Break */}
-      <section className="py-20 px-6 bg-blue-900">
+      <section className="py-16 px-6 bg-blue-900">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-2xl sm:text-3xl font-medium leading-relaxed text-white">
+          <p className="text-xl sm:text-2xl font-medium leading-relaxed text-white">
             "AI generates code.
             <br />
             Engineers <span className="italic">understand</span> code."
@@ -202,13 +206,13 @@ export default function Landing() {
       </section>
 
       {/* Mentorship */}
-      <section className="py-28 px-6">
+      <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-[1.2fr_1fr]">
           <div className="space-y-6">
-            <h2 className="text-4xl sm:text-5xl font-bold text-black">
+            <h2 className="text-3xl sm:text-4xl font-bold text-black">
               Your mentor is your product owner
             </h2>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed">
               Dynamic requirements. Real-world pressure. Exactly how top product
               teams operate.
             </p>
@@ -234,9 +238,11 @@ export default function Landing() {
               <div key={title} className="rounded-3xl bg-gray-50 p-6">
                 <div className="mb-3 flex items-center gap-3">
                   <Icon className="h-8 w-8 text-blue-900" />
-                  <h4 className="text-lg font-semibold text-black">{title}</h4>
+                  <h4 className="text-base font-semibold text-black">
+                    {title}
+                  </h4>
                 </div>
-                <p className="text-gray-600">{copy}</p>
+                <p className="text-gray-600 text-sm sm:text-base">{copy}</p>
               </div>
             ))}
           </div>
@@ -244,13 +250,13 @@ export default function Landing() {
       </section>
 
       {/* Who's This For */}
-      <section className="bg-black py-28 px-6">
+      <section className="bg-blue-900 py-24 px-6">
         <div className="max-w-6xl mx-auto space-y-6">
           <div className="space-y-4">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">
               Who's this for?
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className="text-lg text-gray-400">
               Anyone ready to become a real engineer.
             </p>
           </div>
@@ -261,9 +267,9 @@ export default function Landing() {
               "Working engineers",
               "AI tool users",
             ].map((label) => (
-              <div key={label} className="rounded-3xl bg-gray-900 p-8">
-                <h3 className="text-2xl font-semibold text-white">{label}</h3>
-                <p className="mt-3 text-gray-400">
+              <div key={label} className="rounded-3xl bg-gray-900 p-7">
+                <h3 className="text-xl font-semibold text-white">{label}</h3>
+                <p className="mt-2 text-gray-400 text-sm sm:text-base">
                   {label === "School & college students" &&
                     "Build your foundation before placements matter."}
                   {label === "Career switchers" &&
@@ -280,19 +286,19 @@ export default function Landing() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-36 px-6">
-        <div className="mx-auto max-w-4xl space-y-10 text-center">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-black">
+      <section className="py-28 px-6">
+        <div className="mx-auto max-w-4xl space-y-8 text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-black">
             Stop learning.
             <br />
             Start building.
           </h2>
           <div className="flex flex-col items-center gap-6">
-            <button className="group inline-flex items-center gap-3 rounded-full bg-blue-900 px-12 py-5 text-xl font-semibold text-white transition-all duration-300 hover:bg-black">
+            <button className="group inline-flex items-center gap-3 rounded-full bg-blue-900 px-10 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-blue-900">
               Join G-CMP
               <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
             </button>
-            <p className="text-lg text-gray-500">
+            <p className="text-base text-gray-500">
               No prerequisites. Just bring your curiosity.
             </p>
           </div>
