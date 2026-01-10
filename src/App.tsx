@@ -15,6 +15,7 @@ import FAQ from "./Pages/Faq";
 import ApplyNowForm from "./Pages/ApplyNow";
 import HallOfFrames from "./Section/HallOfFrames/HallOfFrames";
 import CertificationsPage from "./Section/Certifications/Certifications";
+import Landing from "./Pages/NewPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path="*" element={<Error />} />
           <Route path={APPROUTES.HOME} element={<Home />} />
+          <Route path={"/test"} element={<Landing />} />
           <Route path={APPROUTES.G_GMPS} element={<Programs />} />
           <Route path={APPROUTES.CONTACT_US} element={<Contact />} />
           <Route path={APPROUTES.ABOUT} element={<About />} />
@@ -32,7 +34,10 @@ function App() {
             path={`${APPROUTES.FEATURE_DETAILS}`}
             element={<FeatureContent />}
           />
-          <Route path={APPROUTES.CERTIFICATIONS} element={<CertificationsPage />} />
+          <Route
+            path={APPROUTES.CERTIFICATIONS}
+            element={<CertificationsPage />}
+          />
           <Route path={APPROUTES.FAQ} element={<FAQ />} />
           <Route path={APPROUTES.HALL_OF_FAMES} element={<HallOfFrames />} />
           <Route path={APPROUTES.APPLY_NOW} element={<ApplyNowForm />} />
