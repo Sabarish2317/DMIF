@@ -256,7 +256,7 @@ export default function Landing() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white">
               Who's this for?
             </h2>
-            <p className="text-lg text-gray-400">
+            <p className="text-lg text-gray-200">
               Anyone ready to become a real engineer.
             </p>
           </div>
@@ -267,9 +267,9 @@ export default function Landing() {
               "Working engineers",
               "AI tool users",
             ].map((label) => (
-              <div key={label} className="rounded-3xl bg-gray-900 p-7">
+              <div key={label} className="rounded-3xl bg-gray-100/15 p-7">
                 <h3 className="text-xl font-semibold text-white">{label}</h3>
-                <p className="mt-2 text-gray-400 text-sm sm:text-base">
+                <p className="mt-2 text-gray-200 text-sm sm:text-base">
                   {label === "School & college students" &&
                     "Build your foundation before placements matter."}
                   {label === "Career switchers" &&
